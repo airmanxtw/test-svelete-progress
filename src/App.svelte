@@ -2,7 +2,7 @@
 
 <script>
 	import MyProgress from "./Components/MyProgress.svelte";
-	import "./custom.css";
+	//import "./custom.css";
 </script>
 
 <main />

@@ -1,4 +1,5 @@
 <svelte:options tag="my-progress" />
+
 <script>
     import { ajaxCall } from "../Methods/api";
     import ProgressBar from "./ProgressBar.svelte";
@@ -42,20 +43,22 @@
     };
 </script>
 
-<div>
-    <h2 class="bb">
+<div class="container">
+    <h2 class="is-size-3">
         工作{worksCount}件,已處理{process},未處理{worksCount - process}件
     </h2>
     <h3>
         {state}
     </h3>
-    <progress-bar value={percent} />
-    <button on:click={go}>開始執行</button>
+    <!-- <progress-bar value={percent} /> -->
+    <progress class="progress is-primary" value={process} max={worksCount}
+        >{percent}%</progress
+    >
+    <button class="button" on:click={go}>開始執行</button>
     <console-board {success} {errors} />
 </div>
 
 <style>
-    @import "./build/bundle.css"
+    /* @import "./build/bundle.css" */
+    @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 </style>
-
-
