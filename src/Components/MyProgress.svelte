@@ -1,5 +1,4 @@
 <svelte:options tag="my-progress" />
-
 <script>
     import { ajaxCall } from "../Methods/api";
     import ProgressBar from "./ProgressBar.svelte";
@@ -44,7 +43,7 @@
 </script>
 
 <div>
-    <h2>
+    <h2 class="bb">
         工作{worksCount}件,已處理{process},未處理{worksCount - process}件
     </h2>
     <h3>
@@ -54,3 +53,9 @@
     <button on:click={go}>開始執行</button>
     <console-board {success} {errors} />
 </div>
+
+<style>
+    @import "./build/bundle.css"
+</style>
+
+
