@@ -55,6 +55,7 @@
         >{percent}%</progress
     >
     <button class="button" on:click={go}>開始執行</button>
+
     <console-board {success} {errors} />
 </div>
 
@@ -66,6 +67,6 @@
     //     color: $color;
     // }
     @import "bulma/sass/utilities/_all.sass";
-	@import "bulma/sass/elements/button.sass";
+    @import "bulma/sass/elements/button.sass";
     @import "bulma/sass/elements/progress.sass";
 </style>
