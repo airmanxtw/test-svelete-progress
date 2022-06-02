@@ -58,7 +58,14 @@
     <console-board {success} {errors} />
 </div>
 
-<style>
+<style lang="scss">
     /* @import "./build/bundle.css" */
-    @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+    /* @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"; */
+    // $color: red;
+    // h2 {
+    //     color: $color;
+    // }
+    @import "bulma/sass/utilities/_all.sass";
+	@import "bulma/sass/elements/button.sass";
+    @import "bulma/sass/elements/progress.sass";
 </style>
