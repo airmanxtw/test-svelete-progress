@@ -4,8 +4,7 @@
     import { ajaxCall } from "../Methods/api";
     import ProgressBar from "./ProgressBar.svelte";
     import ConsoleBoard from "./ConsoleBoard.svelte";
-    import MyTurtle from "./MyTurtle.svelte";
-    import MyRabbit from "./MyRabbit.svelte";
+
     import MyIcon from "./MyIcon.svelte";
 
     let worksCount = 50;
