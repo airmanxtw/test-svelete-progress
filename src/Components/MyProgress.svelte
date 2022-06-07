@@ -4,6 +4,10 @@
     import { ajaxCall } from "../Methods/api";
     import ProgressBar from "./ProgressBar.svelte";
     import ConsoleBoard from "./ConsoleBoard.svelte";
+    import MyTurtle from "./MyTurtle.svelte";
+    import MyRabbit from "./MyRabbit.svelte";
+    import MyIcon from "./MyIcon.svelte";
+
     let worksCount = 50;
     let process = 0;
     let success = [];
@@ -57,11 +61,27 @@
     <button class="button" on:click={go}>開始執行</button>
 
     <console-board {success} {errors} />
+    <br />
+    <span class="icon-text">
+        <span class="icon is-large">
+            <my-icon icon="turtle" color="pink" size="large" />
+        </span>
+        <span>turtle</span>
+    </span>
+    <br />
+    <span class="icon-text">
+        <span class="icon is-large">
+            <my-icon icon="rabbit" color="pink" size="large" />
+        </span>
+        <span>rabbit</span>
+    </span>
+    <br />
 </div>
 
 <style lang="scss">
     /* @import "./build/bundle.css" */
-    /* @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"; */
+    // @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
     // $color: red;
     // h2 {
     //     color: $color;
@@ -69,4 +89,5 @@
     @import "bulma/sass/utilities/_all.sass";
     @import "bulma/sass/elements/button.sass";
     @import "bulma/sass/elements/progress.sass";
+    @import "bulma/sass/elements/icon.sass";
 </style>
