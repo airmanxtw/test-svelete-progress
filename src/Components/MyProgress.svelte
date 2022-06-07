@@ -68,12 +68,15 @@
         <span>turtle</span>
     </span>
     <br />
-    <span class="icon-text">
-        <span class="icon is-large">
-            <my-icon icon="rabbit" color="pink" size="large" />
+    <div class="adiv">
+        <span class="icon-text">
+            <span class="icon is-large">
+                <my-icon icon="rabbit" color="pink" size="large" />
+            </span>
+            <span>rabbit</span>
         </span>
-        <span>rabbit</span>
-    </span>
+    </div>
+
     <br />
 </div>
 
@@ -85,6 +88,22 @@
     // h2 {
     //     color: $color;
     // }
+    .adiv {
+        position: absolute;
+        top: 60px;
+        left: 50px;
+        animation-name: example;
+        animation-duration: 10s;
+    }
+    @keyframes example {
+        from {
+            left: 50px;
+        }
+        to {
+            left: 500px;
+        }
+    }
+
     @import "bulma/sass/utilities/_all.sass";
     @import "bulma/sass/elements/button.sass";
     @import "bulma/sass/elements/progress.sass";
