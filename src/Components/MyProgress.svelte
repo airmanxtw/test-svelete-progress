@@ -7,6 +7,8 @@
 
     import MyIcon from "./MyIcon.svelte";
 
+    import MyButton from "./MyButton.svelte";
+
     let worksCount = 50;
     let process = 0;
     let success = [];
@@ -78,6 +80,7 @@
     </div>
 
     <br />
+    <my-button></my-button>
 </div>
 
 <style lang="scss">
@@ -103,6 +106,10 @@
             left: 500px;
         }
     }
+
+   
+        
+    
 
     @import "bulma/sass/utilities/_all.sass";
     @import "bulma/sass/elements/button.sass";
