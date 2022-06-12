@@ -2,12 +2,29 @@
 
 <script>
     import { ajaxCall } from "../Methods/api";
+    import { writable, get } from "svelte/store";
     import ProgressBar from "./ProgressBar.svelte";
     import ConsoleBoard from "./ConsoleBoard.svelte";
+    import { var1, add, var2 } from "../api/MyApi2";
+    import "./TestVal.svelte";
+
+    // import { var1 } from "../api/MyApi2";
 
     import MyIcon from "./MyIcon.svelte";
 
     import MyButton from "./MyButton.svelte";
+    import { get_store_value } from "svelte/internal";
+
+    const count = writable(0);
+
+    // 用于接收、订阅 count 值变动
+    let countVal;
+
+    // 订阅
+    var1.subscribe((val) => {
+        // 订阅 store-state
+        countVal = val;
+    });
 
     let worksCount = 50;
     let process = 0;
@@ -80,7 +97,10 @@
     </div>
 
     <br />
-    <my-button></my-button>
+    <my-button />
+    {countVal}-{get(var1)}-{$var1}-{$var2}
+    <button on:click={add}>+</button>
+    <test-val />
 </div>
 
 <style lang="scss">
@@ -106,10 +126,6 @@
             left: 500px;
         }
     }
-
-   
-        
-    
 
     @import "bulma/sass/utilities/_all.sass";
     @import "bulma/sass/elements/button.sass";
