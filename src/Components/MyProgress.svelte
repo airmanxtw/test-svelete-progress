@@ -3,8 +3,8 @@
 <script>
     import { ajaxCall } from "../Methods/api";
     import { writable, get } from "svelte/store";
-    import ProgressBar from "./ProgressBar.svelte";
-    import ConsoleBoard from "./ConsoleBoard.svelte";
+    import  "./ProgressBar.svelte";
+    import  "./ConsoleBoard.svelte";
     import { var1, add, var2 } from "../api/MyApi2";
     import "./TestVal.svelte";
 
