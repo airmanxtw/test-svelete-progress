@@ -7,6 +7,7 @@
     import  "./ConsoleBoard.svelte";
     import { var1, add, var2 } from "../api/MyApi2";
     import "./TestVal.svelte";
+    import "./TestRxjs.svelte";
 
     // import { var1 } from "../api/MyApi2";
 
@@ -66,6 +67,7 @@
 </script>
 
 <div class="container">
+    <test-rxjs></test-rxjs>
     <span class="icon">
 		<i class="mdi mdi-close"></i>
 	</span>
