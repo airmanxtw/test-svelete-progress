@@ -42,19 +42,24 @@
 
     let data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     console.log("start");
-    from(data).pipe(
+    let b=from(data).pipe(
         map(n => n*n),
         reduce((t,n)=>t+n),
         subscribeOn(asyncScheduler),
         toArray()
-    ).subscribe(x=>{total2 = x.at(-1)});
+    );
     console.log('end');
 
     let add=()=>{
-        data.push(11);
+        b.subscribe(x=>{console.log(x)});
+    }
+
+    let fileupload=(e)=>{
+        debugger;
     }
 
 </script>
 
 <h1>{total2}</h1>
 <button on:click={add}>add</button>
+<input type="file" on:change={fileupload}/>
