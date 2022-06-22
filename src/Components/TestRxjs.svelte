@@ -34,10 +34,4 @@
     };
 </script>
 
-<<<<<<< HEAD
 <input type="file" on:change={upload} />
-=======
-<h1>{total2}</h1>
-<button on:click={add}>add</button>
-<input type="file" on:change={fileupload}/>
->>>>>>> 80903361ea81d7a00e3d843ace673a4e83c1dafe
