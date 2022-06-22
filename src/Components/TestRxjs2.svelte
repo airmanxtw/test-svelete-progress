@@ -15,29 +15,28 @@
         scan,
         reduce,
         max,
-        pairwise,concatMap,of,delay
+        pairwise,
+        concatMap,
+        of,
+        delay,
+        retry,
     } from "rxjs";
     let c = () => {
-        let data = [2, 3, 1,2];
+        let data = [2, 3, 1, 2];
 
         // interval(1000)
         //     .pipe(
-        //         takeWhile((t) => t < 4),                
+        //         takeWhile((t) => t < 4),
         //         scan(r => from(r).pipe(
         //             pairwise()
         //         ),data)
         //     )
         //     .subscribe((x) => x.subscribe((y) => console.log(y)));
 
-        interval(1000).pipe(
-           scan((n,t)=>n-1,data.length),
-           takeWhile((n) => n >= 1),   
-                                      
-        )
-        .subscribe((x) => console.log(x));
-
-
-
+        from(data)
+            .pipe()
+            .retry()
+            .subscribe((x) => console.log(x));
     };
 </script>
 
