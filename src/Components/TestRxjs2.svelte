@@ -20,23 +20,17 @@
         of,
         delay,
         retry,
+        Observable,
+        Subject,
     } from "rxjs";
-    let c = () => {
-        let data = [2, 3, 1, 2];
 
-        // interval(1000)
-        //     .pipe(
-        //         takeWhile((t) => t < 4),
-        //         scan(r => from(r).pipe(
-        //             pairwise()
-        //         ),data)
-        //     )
-        //     .subscribe((x) => x.subscribe((y) => console.log(y)));
+    let obs=from([1, 2, 3])
+            .pipe(tap((c) => "start"))
 
-        from(data)
-            .pipe()
-            .retry()
-            .subscribe((x) => console.log(x));
+
+    let c = () => {     
+        obs.next(10);
+        obs.subscribe((x) => console.log(x));
     };
 </script>
 
