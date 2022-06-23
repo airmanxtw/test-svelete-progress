@@ -22,16 +22,20 @@
         retry,
         Observable,
         Subject,
+        fromEvent,
+        throttleTime,
+        merge,
     } from "rxjs";
 
-    let obs=from([1, 2, 3])
-            .pipe(tap((c) => "start"))
+    //fromEvent(document, "mousemove").subscribe((m) => console.log(m));
 
-
-    let c = () => {     
-        obs.next(10);
-        obs.subscribe((x) => console.log(x));
-    };
+    merge(fromEvent(document, "mousemove"), fromEvent(document, "keydown"))
+        .pipe(throttleTime(5000))
+        .subscribe((x) => {
+            console.log(x);
+            //在這裡重新更新jwt token
+        });
 </script>
 
-<button on:click={c}>click</button>
+<button>click</button>
+<input type="text" />
