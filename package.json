@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "bulma": "^0.9.4",
+    "lodash-es": "^4.17.21",
     "node-sass": "^7.0.1",
     "rxjs": "^7.5.5",
     "sass": "^1.52.1",
