@@ -3,8 +3,8 @@
 <script>
     import { ajaxCall } from "../Methods/api";
     import { writable, get } from "svelte/store";
-    import  "./ProgressBar.svelte";
-    import  "./ConsoleBoard.svelte";
+    import "./ProgressBar.svelte";
+    import "./ConsoleBoard.svelte";
     import { var1, add, var2 } from "../api/MyApi2";
     import "./TestVal.svelte";
     import "./TestRxjs.svelte";
@@ -69,13 +69,13 @@
 </script>
 
 <div class="container">
-    <test-rxjs></test-rxjs>
-    <test-rxjs2></test-rxjs2>
-    <test-rxjs3></test-rxjs3>
+    <!-- <test-rxjs></test-rxjs>
+    <test-rxjs2></test-rxjs2> -->
+    <test-rxjs3 />
     <span class="icon">
-		<i class="mdi mdi-close"></i>
-	</span>
-      ***
+        <i class="mdi mdi-close" />
+    </span>
+    ***
     <h2 class="is-size-3">
         工作{worksCount}件,已處理{process},未處理{worksCount - process}件
     </h2>
@@ -142,6 +142,5 @@
     @import "bulma/sass/elements/progress.sass";
     @import "bulma/sass/elements/icon.sass";
 
-
-    @import "//cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css"
+    @import "//cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css";
 </style>

@@ -1,7 +1,6 @@
 <svelte:options tag="test-rxjs3" />
 
 <script>
-    import { object_without_properties } from "svelte/internal";
     import {
         merge,
         of,
@@ -14,20 +13,22 @@
         concatMap,
         interval,
         take,
+        from,
+        window,
+        range,
+        mergeMap,
+        scan,
+        zip,
     } from "rxjs";
-    import {pick} from 'lodash-es';
 
-    let a = { name: "airmanx", age: 18, weight: 50 };
-    let b = { name: "ccsu", age: 20, sex: true };
+    let a = from([10, 2]);
+    let b = from(["a"]);
 
-    let c = Object.keys(a).reduce((obj, k) => {
-        return { ...obj, ...{ [k]: b[k] } };
-    }, {});
-
-    //console.log(c);
-
-    let d= pick({...a,...b},Object.keys(a));
-    console.log(d);
-
-
+    zip(a, b)
+        .pipe(
+            map(([x, y]) => {
+                return { x, y };
+            })
+        )
+        .subscribe((x) => console.log(x));
 </script>
