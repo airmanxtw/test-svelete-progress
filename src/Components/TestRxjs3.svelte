@@ -35,7 +35,7 @@
         "https://jsonplaceholder.typicode.com/posts/5",
     ];
 
-    //依序請求(concatMap),一個請求處理完成了(無論失敗或成功)，才處理下個請求
+    //依序請求(concatMap)，等待兩秒，一個請求處理完成了(無論失敗或成功)，才處理下個請求
     from(urls)
         .pipe(
             concatMap((url) =>
@@ -50,15 +50,15 @@
             error: (err) => console.log(`err`),
         });
 
-    //同時發出請求(mergeMap)
-    // from(urls)
-    //     .pipe(
-    //         mergeMap((url) =>
-    //             ajax.getJSON(url).pipe(catchError((err) => of(null)))
-    //         )
-    //     )
-    //     .subscribe({
-    //         next: (json) => console.log(json),
-    //         error: (err) => console.log(`err`),
-    //     });
+    // 同時發出請求(mergeMap);
+    from(urls)
+        .pipe(
+            mergeMap((url) =>
+                ajax.getJSON(url).pipe(catchError((err) => of(null)))
+            )
+        )
+        .subscribe({
+            next: (json) => console.log(json),
+            error: (err) => console.log(`err`),
+        });
 </script>
