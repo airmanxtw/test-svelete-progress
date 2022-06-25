@@ -19,16 +19,46 @@
         mergeMap,
         scan,
         zip,
+        switchMap,
+        retry,
+        catchError,
+        delay,
     } from "rxjs";
 
-    let a = from([10, 2]);
-    let b = from(["a"]);
+    import { ajax } from "rxjs/ajax";
 
-    zip(a, b)
+    let urls = [
+        "https://jsonplaceholder.typicode.com/posts/1",
+        "https://jsonplaceholder.typicode.com/posts/2",
+        "https://jsonplaceholder.typicode.com/posts/3",
+        "https://jsonplaceholder.typicode.com/posts/4",
+        "https://jsonplaceholder.typicode.com/posts/5",
+    ];
+
+    //依序請求(concatMap),一個請求處理完成了(無論失敗或成功)，才處理下個請求
+    from(urls)
         .pipe(
-            map(([x, y]) => {
-                return { x, y };
-            })
+            concatMap((url) =>
+                ajax.getJSON(url).pipe(
+                    delay(2000),
+                    catchError((err) => of(null))
+                )
+            )
         )
-        .subscribe((x) => console.log(x));
+        .subscribe({
+            next: (json) => console.log(json),
+            error: (err) => console.log(`err`),
+        });
+
+    //同時發出請求(mergeMap)
+    // from(urls)
+    //     .pipe(
+    //         mergeMap((url) =>
+    //             ajax.getJSON(url).pipe(catchError((err) => of(null)))
+    //         )
+    //     )
+    //     .subscribe({
+    //         next: (json) => console.log(json),
+    //         error: (err) => console.log(`err`),
+    //     });
 </script>
