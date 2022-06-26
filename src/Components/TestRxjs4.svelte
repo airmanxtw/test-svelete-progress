@@ -1,14 +1,16 @@
 <svelte:options tag="test-rxjs4" />
 
 <script>
-    import { BehaviorSubject, map } from "rxjs";
-    const subject = new BehaviorSubject(0);
+    import { Subject, map, takeLast } from "rxjs";
+    const subject = new Subject();
 
-    subject.pipe(map((v) => v + 1)).subscribe((x) => {
-        console.log(x);
-    });
+    subject.subscribe((x) => console.log(x));
+
     let t = 0;
-    let cc = () => {};
+    let cc = () => {
+        t++;
+        subject.next(t);
+    };
     //subject.next(1);
 </script>
 
