@@ -9,7 +9,7 @@
     import "./TestVal.svelte";
     import "./TestRxjs.svelte";
     import "./TestRxjs2.svelte";
-    import "./TestRxjs3.svelte";
+    import "./TestRxjs4.svelte";
 
     // import { var1 } from "../api/MyApi2";
 
@@ -71,7 +71,7 @@
 <div class="container">
     <!-- <test-rxjs></test-rxjs>
     <test-rxjs2></test-rxjs2> -->
-    <test-rxjs3 />
+    <test-rxjs4 />
     <span class="icon">
         <i class="mdi mdi-close" />
     </span>
