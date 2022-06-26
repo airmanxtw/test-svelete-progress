@@ -1,21 +1,15 @@
 <svelte:options tag="test-rxjs4" />
 
 <script>
-    import { Subject, map, takeLast } from "rxjs";
-    const subject = new Subject();
+    import { Subject, map, takeLast, Observable, from, scan, take } from "rxjs";
+    const s = new Subject();
 
-    let t = 0;
-    let cc = () => {
-        t++;
-        subject.next(t);
-    };
-    let dd = () => {
-        subject.subscribe((x) => console.log(x));
-    };
+    s.pipe(
+        take(1),
+        scan((t, n) => n + 1, 0)
+    ).subscribe((x) => console.log(x));
 
-    //subject.next(1);
+    s.next(7);
+    s.next(8);
+    s.complete();
 </script>
-
-<div>{t}</div>
-<input type="button" on:click={cc} value="add" />
-<input type="button" on:click={dd} value="add2" />
