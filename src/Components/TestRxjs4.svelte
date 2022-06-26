@@ -1,15 +1,36 @@
 <svelte:options tag="test-rxjs4" />
 
 <script>
-    import { Subject, map, takeLast, Observable, from, scan, take } from "rxjs";
+    import {
+        Subject,
+        map,
+        takeLast,
+        Observable,
+        from,
+        scan,
+        take,
+        throttleTime,
+    } from "rxjs";
     const s = new Subject();
 
-    s.pipe(
-        take(1),
-        scan((t, n) => n + 1, 0)
-    ).subscribe((x) => console.log(x));
+    s.pipe(throttleTime(500)).subscribe((x) => {
+        dx = x;
+    });
 
-    s.next(7);
-    s.next(8);
-    s.complete();
+    let dx = 0;
+    let m = (e) => {
+        s.next(e.clientX);
+    };
 </script>
+
+<div class="d" on:mousemove={m}>{dx}</div>
+
+<style scoped>
+    .d {
+        width: 500px;
+        height: 300px;
+        border-style: solid;
+        border-width: 1px;
+        background-color: pink;
+    }
+</style>
