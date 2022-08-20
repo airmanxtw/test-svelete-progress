@@ -10,6 +10,7 @@
     import "./TestRxjs.svelte";
     import "./TestRxjs2.svelte";
     import "./TestRxjs4.svelte";
+    import "./TestVal2.svelte";
 
     // import { var1 } from "../api/MyApi2";
 
@@ -111,6 +112,8 @@
     {countVal}-{get(var1)}-{$var1}-{$var2}
     <button on:click={add}>+</button>
     <test-val />
+    <hr/>
+    <test-val2 />
 </div>
 
 <style lang="scss">
