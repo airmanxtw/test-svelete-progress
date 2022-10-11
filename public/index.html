@@ -18,9 +18,16 @@
 </head>
 
 <body>
-	<my-progress icon="home"></my-progress>
+	<my-progress id="mp" icon="home"></my-progress>
 	===
 	
 </body>
+<script>
+	document.querySelector('#mp').addEventListener('go', (res) => {
+    // Do something
+		res.detail.load(999);
+		console.log('go event:',res.detail.data);
+  	})
+</script>
 
 </html>
